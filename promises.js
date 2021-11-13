@@ -4,7 +4,9 @@
  * 1. CustomPromise runs doWork()
  * 2. JE (Javascript Engine) detects setTimeout so doWork() is set aside.
  * 3. Javascript Engine continues parsing code while Browser finishes the setTimeout task.
- * 4. 
+ * 4. Since state === PENDING, callback is added to handlers.
+ * 5. Browser notifies JE that task is done.
+ * 6. resolve() gets executed.
  */
 
 function CustomPromise(executor) {
